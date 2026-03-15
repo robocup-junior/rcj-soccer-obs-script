@@ -12,16 +12,16 @@ A match management system publishes game state over MQTT. This OBS script subscr
 |                         |                  |                         |
 |  rcj_soccer/field_<N>/  |                  |  Text / Color Sources   |
 |                         |                  |                         |
-|   team1_name  ----------+----------------->|  Team 1 Name           |
-|   team1_score ----------+----------------->|  Team 1 Score          |
-|   team1_id    ----------+----------------->|  Team 1 Color          |
+|   team1_name  ----------+----------------->|  Team 1 Name            |
+|   team1_score ----------+----------------->|  Team 1 Score           |
+|   team1_id    ----------+----------------->|  Team 1 Color           |
 |                         |                  |                         |
-|   team2_name  ----------+----------------->|  Team 2 Name           |
-|   team2_score ----------+----------------->|  Team 2 Score          |
-|   team2_id    ----------+----------------->|  Team 2 Color          |
+|   team2_name  ----------+----------------->|  Team 2 Name            |
+|   team2_score ----------+----------------->|  Team 2 Score           |
+|   team2_id    ----------+----------------->|  Team 2 Color           |
 |                         |                  |                         |
-|   time        ----------+----------------->|  Match Clock           |
-|   game_stage  ----------+----------------->|  Game Stage            |
+|   time        ----------+----------------->|  Match Clock            |
+|   game_stage  ----------+----------------->|  Game Stage             |
 |                         |                  |                         |
 +-------------------------+                  +-------------------------+
 ```
