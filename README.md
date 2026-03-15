@@ -7,20 +7,23 @@ An [OBS Studio](https://obsproject.com/) script for live-streaming [RoboCup Juni
 A match management system publishes game state over MQTT. This OBS script subscribes to those topics and maps each one to an OBS source (text or color), so the overlay updates live without manual intervention.
 
 ```
-MQTT Broker                        OBS Studio
-┌─────────────────┐               ┌─────────────────────┐
-│ rcj_soccer/      │               │                     │
-│  field_1/        │               │  ┌───────────────┐  │
-│   team1_name ──────────────────────▶│ Team 1 Name   │  │
-│   team1_score ─────────────────────▶│ Team 1 Score  │  │
-│   team1_id ────────────────────────▶│ Team 1 Color  │  │
-│   team2_name ──────────────────────▶│ Team 2 Name   │  │
-│   team2_score ─────────────────────▶│ Team 2 Score  │  │
-│   team2_id ────────────────────────▶│ Team 2 Color  │  │
-│   time ────────────────────────────▶│ Match Clock   │  │
-│   game_stage ──────────────────────▶│ Game Stage    │  │
-│                  │               │  └───────────────┘  │
-└─────────────────┘               └─────────────────────┘
+ ┌──────────────────────────┐                    ┌──────────────────────────┐
+ │       MQTT Broker        │                    │       OBS Studio         │
+ │                          │                    │                          │
+ │  rcj_soccer/field_<N>/   │                    │   Text / Color Sources   │
+ │                          │                    │                          │
+ │   team1_name  ───────────┼───────────────────▶│   Team 1 Name           │
+ │   team1_score ───────────┼───────────────────▶│   Team 1 Score          │
+ │   team1_id    ───────────┼───────────────────▶│   Team 1 Color          │
+ │                          │                    │                          │
+ │   team2_name  ───────────┼───────────────────▶│   Team 2 Name           │
+ │   team2_score ───────────┼───────────────────▶│   Team 2 Score          │
+ │   team2_id    ───────────┼───────────────────▶│   Team 2 Color          │
+ │                          │                    │                          │
+ │   time        ───────────┼───────────────────▶│   Match Clock           │
+ │   game_stage  ───────────┼───────────────────▶│   Game Stage            │
+ │                          │                    │                          │
+ └──────────────────────────┘                    └──────────────────────────┘
 ```
 
 ### MQTT Topics
@@ -44,7 +47,7 @@ Team IDs control the color of a color source: `A` maps to green (`#77FF00`) and 
 
 - **OBS Studio** (version 28+ recommended) with Python scripting support enabled
 - **Python 3.6+** (the version bundled with or configured in OBS)
-- **paho-mqtt** Python package
+- **[paho-mqtt](https://pypi.org/project/paho-mqtt/)** Python package
 
 ## Installation
 
@@ -53,6 +56,8 @@ Team IDs control the color of a color source: `A` maps to green (`#77FF00`) and 
 ```bash
 pip install paho-mqtt
 ```
+
+See the [paho-mqtt documentation](https://pypi.org/project/paho-mqtt/) for more details.
 
 > If OBS uses its own bundled Python, you may need to install into that environment specifically. On some systems you may need the `--break-system-packages` flag.
 
